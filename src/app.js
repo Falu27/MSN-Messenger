@@ -5,7 +5,8 @@ import views from './routes/views.js';
 import { Server } from 'socket.io'
 
 const app = express();
-const server = app.listen(8080, ()=>console.log('Listening on port 8080'))
+const PORT = process.env.PORT||8080; //en el entorno de quien te ejecuta, utiliza el puerto que elige la pc, sino utiliza el 8080
+const server = app.listen(PORT, ()=>console.log('Listening on port 8080'))
 
 app.engine('handlebars', handlebars.engine());
 app.set('views', `${__dirname}/views`);
